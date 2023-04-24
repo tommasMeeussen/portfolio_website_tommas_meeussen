@@ -33,6 +33,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 75px;
+  overflow-x: hidden;
 }
 
 body {
@@ -103,8 +104,8 @@ p.danger {
   color: red;
 }
 
-.app {
-  overflow: hidden
+.App {
+  overflow-x: hidden
 }
 
 
