@@ -14,26 +14,6 @@ export const Banner = () => {
     const ref1 = useRef(null);
     const [isIntersecting, setIsIntersecting] = useState(true);
 
-
-    useEffect(() => {
-        let ticker = setInterval(() => {
-            tick()
-        }, delta)
-
-        return () => { clearInterval(ticker) };
-    }, [text, tick, delta])
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                setIsIntersecting(entry.isIntersecting);
-            },
-        );
-        observer.observe(ref1.current);
-        return () => observer.disconnect();
-    }, []);
-
-
     const tick = () => {
         let i = loopNum % toRotate.length;
         let fullText = toRotate[i];
@@ -55,6 +35,28 @@ export const Banner = () => {
         }
 
     }
+
+
+    useEffect(() => {
+        let ticker = setInterval(() => {
+            tick()
+        }, delta)
+
+        return () => { clearInterval(ticker) };
+    }, [text, tick, delta])
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsIntersecting(entry.isIntersecting);
+            },
+        );
+        observer.observe(ref1.current);
+        return () => observer.disconnect();
+    }, []);
+
+
+
 
     return (
         <div className="banner" id="home">
