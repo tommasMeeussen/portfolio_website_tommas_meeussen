@@ -103,6 +103,9 @@ p.danger {
   color: red;
 }
 
+.app {
+  overflow: hidden
+}
 
 
 /************ NavBar CSS ************/
