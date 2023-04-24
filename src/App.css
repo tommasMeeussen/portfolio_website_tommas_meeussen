@@ -320,20 +320,19 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .banner {
   margin-top: 0;
-  padding: 9vh 10% 1vh 10%;
-  overflow: hidden;
-  display: inline-flex;
+  padding: 16% 0 10% 0px;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  height: 90%;
-  width: 100%;
 }
 
-.banner .bannerCard {
+/* .banner .bannerCard {
   margin: 0;
   background-color: #ffffff;
   height: 100%;
-  width: 90%;
+  width: 100%;
   border-radius: 25px;
   padding: 10px 10px 10px 10px;
   box-shadow: 0px 0px 10px #1212125f;
@@ -341,8 +340,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-}
+  text-align: left;
+} */
 
 .banner .tagline {
   font-weight: 700;
@@ -359,7 +358,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .banner h1 {
   color: #121212;
-  font-size: calc(1em + 3vw);
   font-weight: 700;
   letter-spacing: 0.8px;
   line-height: 1;
@@ -369,17 +367,16 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .banner p {
   color: #121212;
-  font-size: calc(1em + 1vw);
+  font-size: calc(1em + 0.5vw);
   letter-spacing: 0.8px;
   line-height: 1.5em;
   width: 96%;
-  text-align: center;
+  text-align: left;
 }
 
 .banner img {
-  width: calc(3em + 16vw);
-
-  height: calc(3em + 16vw);
+  width: 60%;
+  height: auto;
 
 }
 
@@ -392,7 +389,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   letter-spacing: 0.8px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 
 .banner .con-link svg {
@@ -429,12 +426,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /************ Projects CSS ************/
 .projects {
   width: 100%;
-  padding: 10% 0% 10% 0%;
+  padding: 5% 0% 10% 0%;
   overflow: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
 }
 
 .projects span {
@@ -446,14 +442,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .projects .project-card {
-  margin: 0;
-  background-color: #ffffff;
-  height: 100%;
-  width: 90%;
-  border-radius: 0px 25px 25px 0px;
-  padding: 10px 10px 10px 10px;
-  box-shadow: 0px 0px 10px #1212125f;
+  height: 80%;
+  width: 100%;
+  padding: 20px 10px 20px 10px;
   transition: 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
 }
 
 .footer {

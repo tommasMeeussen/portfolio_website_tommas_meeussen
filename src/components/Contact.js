@@ -16,7 +16,7 @@ export const Contact = () => {
     const [status, setStatus] = useState({});
     const ref1 = useRef(null);
 
-    const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(false);
 
     const form = useRef();
 
@@ -44,7 +44,9 @@ export const Contact = () => {
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                setIsVisible(entry.isIntersecting);
+                if (!isVisible) {
+                    setIsVisible(entry.isIntersecting);
+                }
             },
         );
         observer.observe(ref1.current);

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Container, Row, Col, Nav } from "react-bootstrap"
 import { ArrowRightCircle } from "react-bootstrap-icons";
-import memoji from "../assets/img/tom_memoji.png"
+import memoji from "../assets/img/tom_memoji_crop.png"
 import 'animate.css';
 
 export const Banner = () => {
@@ -49,33 +49,38 @@ export const Banner = () => {
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                setIsIntersecting(entry.isIntersecting);
+                if (!isIntersecting) {
+
+                    setIsIntersecting(true);
+                }
             },
         );
         observer.observe(ref1.current);
         return () => observer.disconnect();
-    }, []);
+    }, [isIntersecting]);
 
 
 
 
     return (
-        <div className="banner" id="home">
-            <div ref={ref1} className={isIntersecting ? 'bannerCard animate__animated animate__slideInRight' : 'bannerCard'}>
-                <Container className="d-flex justify-content-center">
-                    <Row>
-                        <Col>
-                            <img src={memoji} alt="Logo" />
-                            <h1>{"Hi, Im Tommas Meeussen"}<br /><span className="wrap">- {text}</span></h1>
-                            <span className="tagline">Welcome to my portfolio</span>
-                            <p>I am a highly motivated and progress-focused software developer, with a track record of initiative and dependability.</p>
-                            <Nav.Link className="con-link" href='#contact'>Let's connect <ArrowRightCircle size={25} /></Nav.Link>
-                        </Col>
-                    </Row>
+        <section className="banner" id="home" >
+            <Container fluid className=".flex-wrap-reverse align-items-center d-flex justify-content-center">
+                <Row ref={ref1} className={isIntersecting ? 'bannerCard animate__animated animate__slideInRight  align-items-center d-flex justify-content-center' : 'bannerCard'}>
 
-                </Container>
-            </div>
-        </div >
+                    <Col className=".order-sm-2 justify-content-center col-8 ">
+
+                        <h1 className="text-6xl">{"Hi, Im Tommas Meeussen"}<br /><span className="wrap">- {text}</span></h1>
+                        <p>I am a highly motivated and progress-focused software developer, with a track record of initiative and dependability. Multidisciplinary developer with a passion for problem solving and creativity </p>
+                        <Nav.Link className="con-link" href='#contact'>Let's connect <ArrowRightCircle size={25} /></Nav.Link>
+                    </Col>
+                    <Col className="col-auto align-items-center d-flex justify-content-center ">
+                        <img src={memoji} alt="Logo" />
+                    </Col>
+
+
+                </Row>
+            </Container>
+        </section >
 
     )
 }
