@@ -457,6 +457,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .footer {
   position: relative;
+  position: fixed;
   width: 100%;
   bottom: 0;
   display: flex;
