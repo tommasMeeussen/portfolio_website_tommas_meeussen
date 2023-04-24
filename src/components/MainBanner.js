@@ -9,13 +9,37 @@ export const Banner = () => {
     const [isDeleting, setIsDeleting] = useState(false);
     const [text, setText] = useState('');
     const toRotate = ["Web Developer", "Web Designer", "Software Developer"]
-    const [delta, setDelta] = useState('');
     const period = 2000;
     const ref1 = useRef(null);
     const [isIntersecting, setIsIntersecting] = useState(true);
 
 
     useEffect(() => {
+        const [delta, setDelta] = useState('');
+
+        const tick = () => {
+            let i = loopNum % toRotate.length;
+            let fullText = toRotate[i];
+            let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1)
+
+            setText(updatedText);
+
+            if (isDeleting) {
+                setDelta(prevDelta => prevDelta / 1.2)
+            }
+
+            if (!isDeleting && updatedText === fullText) {
+                setIsDeleting(true);
+                setDelta(period);
+            } else if (isDeleting && updatedText === '') {
+                setIsDeleting(false);
+                setLoopNum(loopNum + 1);
+                setDelta(500);
+            }
+
+        }
+
+
         let ticker = setInterval(() => {
             tick()
         }, delta)
@@ -34,27 +58,6 @@ export const Banner = () => {
     }, []);
 
 
-    const tick = () => {
-        let i = loopNum % toRotate.length;
-        let fullText = toRotate[i];
-        let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1)
-
-        setText(updatedText);
-
-        if (isDeleting) {
-            setDelta(prevDelta => prevDelta / 1.2)
-        }
-
-        if (!isDeleting && updatedText === fullText) {
-            setIsDeleting(true);
-            setDelta(period);
-        } else if (isDeleting && updatedText === '') {
-            setIsDeleting(false);
-            setLoopNum(loopNum + 1);
-            setDelta(500);
-        }
-
-    }
 
     return (
         <div className="banner" id="home">
