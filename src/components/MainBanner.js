@@ -31,7 +31,7 @@ export const Banner = () => {
         );
         observer.observe(ref1.current);
         return () => observer.disconnect();
-    }, [tick, delta, i]);
+    }, []);
 
 
     const tick = () => {
