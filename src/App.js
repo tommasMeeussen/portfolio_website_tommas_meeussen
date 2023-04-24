@@ -3,7 +3,6 @@ import { Banner } from './components/MainBanner';
 import { Projects } from './components/Projects';
 import { Footer } from './components/Footer';
 import { Contact } from './components/Contact';
-import { Stack } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'animate.css';
