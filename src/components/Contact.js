@@ -51,7 +51,7 @@ export const Contact = () => {
         );
         observer.observe(ref1.current);
         return () => observer.disconnect();
-    }, []);
+    }, [isVisible]);
 
 
     const onFormUpdate = (category, value) => {
