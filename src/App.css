@@ -89,12 +89,12 @@ select:focus {
   outline: none;
 }
 
-@media (min-width:1700px) {
+/* @media (min-width:1700px) {
   main .container {
     max-width: 100%;
     padding: 0 150px;
   }
-}
+} */
 
 p.success {
   color: green;
