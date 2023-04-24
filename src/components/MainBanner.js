@@ -5,45 +5,46 @@ import memoji from "../assets/img/tom_memoji.png"
 import 'animate.css';
 
 export const Banner = () => {
-    const [loopNum, setLoopNum] = useState(0);
-    const [isDeleting, setIsDeleting] = useState(false);
-    const [text, setText] = useState('');
-    const toRotate = ["Web Developer", "Web Designer", "Software Developer"]
-    const [delta, setDelta] = useState('');
-    const period = 2000;
+    //  const [loopNum, setLoopNum] = useState(0);
+    // const [isDeleting, setIsDeleting] = useState(false);
+    const text = "Software Developer";
+    // const [text, setText] = useState('');
+    // const toRotate = ["Web Developer", "Web Designer", "Software Developer"]
+    //  const [delta, setDelta] = useState('');
+    //const period = 2000;
     const ref1 = useRef(null);
     const [isIntersecting, setIsIntersecting] = useState(true);
 
-    const tick = () => {
-        let i = loopNum % toRotate.length;
-        let fullText = toRotate[i];
-        let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1)
+    // const tick = useCallback(() => {
+    //     let i = loopNum % toRotate.length;
+    //     let fullText = toRotate[i];
+    //     let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1)
 
-        setText(updatedText);
+    //     setText(updatedText);
 
-        if (isDeleting) {
-            setDelta(prevDelta => prevDelta / 1.2)
-        }
+    //     if (isDeleting) {
+    //         setDelta(prevDelta => prevDelta / 1.2)
+    //     }
 
-        if (!isDeleting && updatedText === fullText) {
-            setIsDeleting(true);
-            setDelta(period);
-        } else if (isDeleting && updatedText === '') {
-            setIsDeleting(false);
-            setLoopNum(loopNum + 1);
-            setDelta(500);
-        }
+    //     if (!isDeleting && updatedText === fullText) {
+    //         setIsDeleting(true);
+    //         setDelta(period);
+    //     } else if (isDeleting && updatedText === '') {
+    //         setIsDeleting(false);
+    //         setLoopNum(loopNum + 1);
+    //         setDelta(500);
+    //     }
 
-    }
+    // }, [toRotate, isDeleting, loopNum, text.length]);
 
 
-    useEffect(() => {
-        let ticker = setInterval(() => {
-            tick()
-        }, delta)
+    // useEffect(() => {
+    //     let ticker = setInterval(() => {
+    //         tick()
+    //     }, delta)
 
-        return () => { clearInterval(ticker) };
-    }, [text, tick, delta])
+    //     return () => { clearInterval(ticker) };
+    // }, [tick, delta])
 
     useEffect(() => {
         const observer = new IntersectionObserver(
