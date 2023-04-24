@@ -12,10 +12,11 @@ export const Banner = () => {
     const period = 2000;
     const ref1 = useRef(null);
     const [isIntersecting, setIsIntersecting] = useState(true);
+    const [delta, setDelta] = useState('');
+
 
 
     useEffect(() => {
-        const [delta, setDelta] = useState('');
 
         const tick = () => {
             let i = loopNum % toRotate.length;
